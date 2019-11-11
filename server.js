@@ -4,22 +4,12 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const cors = require("cors");
 
+const db = require("./database/db");
 const register = require("./controllers/register");
 const signin = require("./controllers/signin");
 const profile = require("./controllers/profile");
 const image = require("./controllers/image");
 const users = require("./controllers/users");
-const knex = require("knex");
-
-const db = knex({
-  client: "pg",
-  connection: {
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME
-  }
-});
 
 const app = express();
 
