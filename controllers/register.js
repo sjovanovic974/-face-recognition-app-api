@@ -1,6 +1,8 @@
 handleRegister = async (req, res, db, bcrypt) => {
   const { email, name, password } = req.body;
-
+  if (!email || !name || !password) {
+    return res.status(400).json("You must fill in all fields!");
+  }
   const hash = await bcrypt.hash(password, 12);
 
   db.transaction(trx => {

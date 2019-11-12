@@ -33,4 +33,8 @@ app.put("/image", (req, res) => {
   image.handleImage(req, res, db);
 });
 
+app.post("/imageurl", (req, res) => {
+  image.handleApiCall(req, res);
+});
+
 module.exports = app;
